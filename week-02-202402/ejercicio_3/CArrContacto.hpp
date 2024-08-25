@@ -120,4 +120,21 @@ public:
 		cin >> pos;
 		eliminarContactoEnPosicio(pos);
 	}
+
+	 //Reporte WhatsApp y Facebook
+  void ArrContactos::ReporteContc_W_F() {
+	 cout << "Contactos que usan Facebook y WhatsApp: ";
+	 for (int i = 0; i < this->cant; i++) {
+		 string RedS = Arr[i]->getRedSocial();
+
+		 bool usaFacebook = RedS.find("Facebook") != string::npos;
+		 bool usaWhatsApp = RedS.find("WhatsApp") != string::npos;
+
+		 if (usaFacebook && usaWhatsApp) {
+			 cout << "Contacto N#" << i + 1 << '\n';
+			 Arr[i]->MostrarDatos();
+			 cout << "\n\n";
+		 }
+	 }
+  }
 };
