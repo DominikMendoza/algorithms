@@ -1,42 +1,48 @@
 #pragma once
-#include <iostream>
+#include "iostream"
+#include "string"
 using namespace std;
-class CFecha
-{
+//«mayor que» > y «menor que» <
+class CFecha {
 private:
-	int dia, mes, anio;
+	short dia, mes, anio;
 public:
 	CFecha() {
 		this->dia = rand() % 29 + 1;
-		this->mes = rand() % (2) + 5;
-		this->anio = rand() % (2030 - 2000 + 1) + 2000;
+		this->mes = rand() % (12 - 1 + 1) + 12;
+		this->anio = rand() % (2030 - 1950 + 1) + 1950;
 	}
-	CFecha(int dia, int mes, int anio) {
+	CFecha(short dia, short mes, short anio) {
 		this->dia = dia;
 		this->mes = mes;
 		this->anio = anio;
 	}
-	~CFecha() {}
+	~CFecha(){		}
 
-	void mostrarFecha() {
-		cout << dia << "/" << mes << "/" << anio << endl;
-	}
-	void setDia(int dia) {
+	//setters
+	void setDia(short dia) {
 		this->dia = dia;
 	}
-	void setMes(int mes) {
+	void setMes(short mes) {
 		this->mes = mes;
 	}
-	void setAnio(int anio) {
+	void setAnio(short anio) {
 		this->anio = anio;
 	}
-	int getDia() {
+
+	//getters
+	short getDia() {
 		return this->dia;
 	}
-	int getMes() {
+	short getMes() {
 		return this->mes;
 	}
-	int getAnio() {
+	short getAnio() {
 		return this->anio;
+	}
+
+	//metodos
+	void mostrarFecha() {
+		cout << this->dia << "/" << this->mes << "/" << this->anio;
 	}
 };
