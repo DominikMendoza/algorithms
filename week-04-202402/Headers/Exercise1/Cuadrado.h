@@ -59,8 +59,6 @@ void Cuadrado::Dibujar()
 
 void Cuadrado::Mover()
 {
-	x += dx;
-	y += dy;
 	if (x + ancho >= ANCHO_PANTALLA && y == 0)
 	{
 		dx = 0;
@@ -81,6 +79,8 @@ void Cuadrado::Mover()
 		dx = 1;
 		dy = 0;
 	}
+	x += dx;
+	y += dy;
 }
 
 void Cuadrado::CambiarColor()

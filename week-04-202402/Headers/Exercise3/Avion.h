@@ -64,16 +64,22 @@ Avion::~Avion()
 {
     delete fuselaje;
     delete empenaje;
-    for (int i = 0; i < numAlas; i++)
+    if (alas != nullptr)
     {
-        delete alas[i];
+        for (int i = 0; i < numAlas; i++)
+        {
+            delete alas[i];
+        }
+        delete[] alas;
     }
-    delete[] alas;
-    for (int i = 0; i < numTrenes; i++)
+    if (trenes != nullptr)
     {
-        delete trenes[i];
+        for (int i = 0; i < numTrenes; i++)
+        {
+            delete trenes[i];
+        }
+        delete[] trenes;
     }
-    delete[] trenes;
 }
 
 void Avion::Borrar()
