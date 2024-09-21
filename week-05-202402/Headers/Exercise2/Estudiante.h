@@ -1,5 +1,4 @@
 #pragma once
-#include "sstream"
 #include "Persona.h"
 
 class Estudiante : public Persona
@@ -21,10 +20,6 @@ Estudiante::Estudiante(string nombre, string apellido, int edad, char sexo, stri
 
 string Estudiante::generarDNI()
 {
-	stringstream ss;
-	for (int i = 0; i < 8; i++)
-	{
-		ss << rand() % 10;
-	}
-	return ss.str();
+	string s;
+	s = to_string(rand() % (99999999 - 10000000 + 1) + 10000000);
 }

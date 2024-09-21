@@ -170,43 +170,6 @@ void Controladora::VisualizarPromedioNotasEstudiantesSelecPasantes()
 	}
 }
 
-//void Controladora::VisualizarPromedioNotasEstudiantesSelecPasantes() //Para ingresar el promedio minimo y mostrar solo esos estudiantes que se convierten en pasantes
-//{
-//	if (pasantes.empty())
-//	{
-//		cout << "NO HAY PASANTES REGISTRADOS. POR FAVOR REGISTRE UN PASANTE" << endl;
-//		return;
-//	}
-//	bool pasantesSeleccionados = false;
-//	double promedioMinimo;
-//	do
-//	{
-//		cout << "Ingrese el promedio minimo para seleccionar los pasantes: "; cin >> promedioMinimo;
-//	} while (promedioMinimo < 0);
-//	for (int i = 0; i < pasantes.size(); i++)
-//	{
-//		double promedio = pasantes[i]->getPromedioNotas();
-//		if (promedio >= promedioMinimo)
-//		{
-//			if (!pasantesSeleccionados)
-//			{
-//				system("cls");
-//				cout << "\t\tPROMEDIO NOTAS ESTUDIANTES SELECCIONADOS\n\n";
-//				pasantesSeleccionados = true;
-//			}
-//			cout << "Pasante " << i + 1 << ": " << endl;
-//			cout << "Nombre: " << pasantes[i]->Persona::getNombre() << endl;
-//			cout << "Apellido: " << pasantes[i]->Persona::getApellido() << endl;
-//			cout << "Promedio de Notas: " << promedio << endl;
-//			cout << endl;
-//		}
-//	}
-//	if (!pasantesSeleccionados)
-//	{
-//		cout << endl << "NO HAY PASANTES QUE CUMPLAN CON EL PROMEDIO MINIMO!!" << endl;
-//	}
-//}
-
 void Controladora::MostrarPasantes()
 {
 	if (pasantes.empty())
