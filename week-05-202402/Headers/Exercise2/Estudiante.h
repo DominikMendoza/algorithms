@@ -22,4 +22,5 @@ string Estudiante::generarDNI()
 {
 	string s;
 	s = to_string(rand() % (99999999 - 10000000 + 1) + 10000000);
+	return s;
 }
