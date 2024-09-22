@@ -3,7 +3,7 @@
 
 Juego::Juego() {
 	this->gato = new Gato(25, 25);
-	cantidad_ratones = rand() % 9 + 7;
+	int cantidad_ratones = rand() % 9 + 7;
 	for (int i = 0; i < cantidad_ratones; i++) {
 		listaRatones.push_back(new Raton());
 	}
@@ -11,44 +11,39 @@ Juego::Juego() {
 }
 
 Juego::~Juego() {
-	for (int i = 0; i < cantidad_ratones; i++) {
-		delete listaRatones[i];
+	for (Raton* raton : listaRatones) {
+		delete raton;
 	}
 	listaRatones.clear();
 	delete gato;
 }
 
-bool Juego::detectarColision() {
+void Juego::detectarColision() {
 	for (int i = 0; i < listaRatones.size(); i++) {
-		int ratonX = listaRatones[i]->getX();
-		int ratonY = listaRatones[i]->getY();
+		Raton* raton = listaRatones[i];
 
-		int ratonAncho = 8;
-		int ratonAlto = 1;
+		float ratonX = raton->getX(), ratonY = raton->getY();
+		int ratonAncho = raton->getAncho(), ratonAlto = raton->getAlto();
 
-		int gatoAncho = 8;
-		int gatoAlto = 3;
-		int gatoX = gato->getX();
-		int gatoY = gato->getY();
+		float gatoX = gato->getX(), gatoY = gato->getY();
+		int gatoAncho = gato->getAncho(), gatoAlto = gato->getAlto();
 
 		if (gatoX < ratonX + ratonAncho &&
 			gatoX + gatoAncho > ratonX &&
 			gatoY < ratonY + ratonAlto &&
 			gatoY + gatoAlto > ratonY &&
 			listaRatones[i]->getVisible()) {
-			listaRatones[i]->borrar();
-			delete listaRatones[i];
+			raton->borrar();
+			delete raton;
 			listaRatones.erase(listaRatones.begin() + i);
-			cantidad_ratones--;
-			return true;
 		}
 	}
-	return false;
 }
 
+
 void Juego::visibleRaton() {
-	auto tiempoAhora = chrono::steady_clock::now();
-	auto duracion = chrono::duration_cast<chrono::seconds>(tiempoAhora - tiempoAnterior);
+	chrono::steady_clock::time_point tiempoAhora = chrono::steady_clock::now();
+	chrono::seconds duracion = chrono::duration_cast<chrono::seconds>(tiempoAhora - tiempoAnterior);
 	if (duracion.count() >= 2) {
 		tiempoAnterior = tiempoAhora;
 		for (Raton* raton : listaRatones) {
@@ -62,15 +57,15 @@ void Juego::visibleRaton() {
 
 
 void Juego::play() {
-	int ratones_iniciales = cantidad_ratones;
+	int ratones_iniciales = listaRatones.size();
 	System::Console::SetWindowSize(80, 45);
 
-	auto tiempoInicio = chrono::steady_clock::now();
+	chrono::steady_clock::time_point tiempoInicio = chrono::steady_clock::now();
 	while (true) {
 		System::Console::SetCursorPosition(35, 43);
 		cout << "Ratones:    ";
 		System::Console::SetCursorPosition(44, 43);
-		cout << cantidad_ratones;
+		cout << listaRatones.size();
 
 		for (Raton* raton: listaRatones) {
 			raton->borrar();
@@ -84,7 +79,7 @@ void Juego::play() {
 		detectarColision();
 		visibleRaton();
 
-		if (ratones_iniciales / 2 == cantidad_ratones) {
+		if (ratones_iniciales / 2 == listaRatones.size()) {
 			break;
 		}
 

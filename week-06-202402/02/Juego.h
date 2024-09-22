@@ -13,8 +13,7 @@ public:
 private:
 	Gato* gato;
 	vector<Raton*> listaRatones;
-	int cantidad_ratones;
 	chrono::steady_clock::time_point tiempoAnterior;
-	bool detectarColision();
+	void detectarColision();
 	void visibleRaton();
 };

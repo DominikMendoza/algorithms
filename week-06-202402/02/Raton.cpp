@@ -2,12 +2,7 @@
 
 int pos[2] = { 1,-1 };
 
-Raton::Raton() : Entidad(rand() % 70, rand() % 40+1), dx(pos[rand() % 2]), dy(pos[rand() % 2]), velocidad(0.1 + static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * (0.9)), visible(false) {}
-
-void Raton::borrar() {
-	System::Console::SetCursorPosition(x, y);
-	cout << "       ";
-}
+Raton::Raton() : Entidad(rand() % 70, rand() % 40 + 1, 8, 1), dx(pos[rand() % 2]), dy(pos[rand() % 2]), velocidad(0.1 + static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * (0.9)), visible(false) {}
 
 void Raton::mover() {
 	if (x < 1 || x>70) dx *= -1;

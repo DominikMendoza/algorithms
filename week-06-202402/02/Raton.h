@@ -4,7 +4,6 @@ class Raton : public Entidad
 {
 public:
 	Raton();
-	void borrar() override;
 	void mover() override;
 	void mover(int gatoX, int gatoY);
 	void dibujar() override;
