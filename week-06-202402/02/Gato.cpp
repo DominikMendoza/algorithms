@@ -1,11 +1,12 @@
 #include "Gato.h"
 
-Gato::Gato(float x, float y) : Entidad(x, y,8,3) {}
+Gato::Gato(float x, float y) : Entidad(x, y, 8, 3) {}
 
 void Gato::mover() {
     char tecla;
     if (_kbhit()) {
-        tecla = toupper(_getch());
+        tecla = _getch();
+        tecla = toupper(tecla);
         switch (tecla) {
         case 72:
         case 'W':
