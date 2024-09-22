@@ -11,7 +11,10 @@ public:
 	void dibujar();
 	float getX() { return x; }
 	float getY() { return y; }
+	int getAncho() { return ancho; }
+	int getAlto() { return alto; }
 private:
 	float x, y;
+	int alto, ancho;
 };
 

@@ -1,17 +1,6 @@
 #include "Bus.h"
 
-Bus::Bus(float x, float y) : Terrestre(x, y, 0.9, 0.7) {}
-
-void Bus::borrar() {
-	System::Console::SetCursorPosition(x, y);
-	cout << "                ";
-	System::Console::SetCursorPosition(x, y+1);
-	cout << "                    ";
-	System::Console::SetCursorPosition(x, y+2);
-	cout << "                    ";
-	System::Console::SetCursorPosition(x, y+3);
-	cout << "                   ";
-}
+Bus::Bus(float x, float y) : Terrestre(x, y, 0.9, 0.7, 20, 4) {}
 
 void Bus::mover() {
 	if (x < 1) x = 60;

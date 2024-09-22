@@ -1,15 +1,6 @@
 #include "Carro.h"
 
-Carro::Carro(float x, float y) : Terrestre(x, y, 0.6, 0.4) {}
-
-void Carro::borrar() {
-	System::Console::SetCursorPosition(x, y);
-	cout << "          ";
-	System::Console::SetCursorPosition(x, y + 1);
-	cout << "         ";
-	System::Console::SetCursorPosition(x, y + 2);
-	cout << "       ";
-}
+Carro::Carro(float x, float y) : Terrestre(x, y, 0.6, 0.4, 11, 3) {}
 
 void Carro::mover() {
 	if (x > 65) x = 0;

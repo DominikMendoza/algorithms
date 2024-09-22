@@ -1,10 +1,14 @@
 #include "Persona.h"
 
-Persona::Persona(float x, float y) : x(x), y(y) {}
+Persona::Persona(float x, float y) : x(x), y(y), ancho(1), alto(1) {}
 
 void Persona::borrar() {
-    System::Console::SetCursorPosition(x, y);
-    cout << " ";
+    for (int i = 0; i < alto; i++) {
+        System::Console::SetCursorPosition(x, y + i);
+        for (int j = 0; j < ancho; j++) {
+            cout << " ";
+        }
+    }
 }
 
 void Persona::mover() {

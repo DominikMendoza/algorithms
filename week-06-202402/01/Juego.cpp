@@ -2,30 +2,26 @@
 
 bool Juego::detectarColision() {
 	for (int i = 0; i < listaTerrestre.size(); i++) {
-		int vehiculoX = listaTerrestre[i]->getX();
-		int vehiculoY = listaTerrestre[i]->getY();
+		float vehiculoX = listaTerrestre[i]->getX();
+		float vehiculoY = listaTerrestre[i]->getY();
+		int vehiculoAncho = listaTerrestre[i]->getAncho();
+		int vehiculoAlto = listaTerrestre[i]->getAlto();
 
-		int vehiculoAncho, vehiculoAlto;
+		float personajeX = personaje->getX();
+		float personajeY = personaje->getY();
+		int personajeAncho = personaje->getAncho();
+		int personajeAlto = personaje->getAlto();
 
-		if (dynamic_cast<Bus*>(listaTerrestre[i])) {
-			vehiculoAncho = 16;
-			vehiculoAlto = 4;
-		}
-		else if (dynamic_cast<Carro*>(listaTerrestre[i])) {
-			vehiculoAncho = 10;
-			vehiculoAlto = 3;
-		}
-
-		int personajeX = personaje->getX();
-		int personajeY = personaje->getY();
-
-		if (personajeX >= vehiculoX && personajeX < vehiculoX + vehiculoAncho &&
-			personajeY >= vehiculoY && personajeY < vehiculoY + vehiculoAlto) {
+		if (personajeX < vehiculoX + vehiculoAncho &&
+			personajeX + personajeAncho > vehiculoX &&
+			personajeY < vehiculoY + vehiculoAlto &&
+			personajeY + personajeAlto > vehiculoY) {
 			return true;
 		}
 	}
 	return false;
 }
+
 
 Juego::Juego() {
 	for (int i = 0, y = 5; i < 4; i++) {
@@ -85,5 +81,5 @@ void Juego::jugar() {
 	System::Console::Clear();
 	System::Console::SetCursorPosition(25, 20);
 	cout << "Fuiste atropellado";
-	_getch();
+	_sleep(2500);
 }

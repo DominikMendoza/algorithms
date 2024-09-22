@@ -1,13 +1,6 @@
 #include "Bicicleta.h"
 
-Bicicleta::Bicicleta(float x, float y) : Terrestre(x, y, 0.3, 0.1) {}
-
-void Bicicleta::borrar() {
-	System::Console::SetCursorPosition(x, y);
-	cout << "    ";
-	System::Console::SetCursorPosition(x, y + 1);
-	cout << "      ";
-}
+Bicicleta::Bicicleta(float x, float y) : Terrestre(x, y, 0.3, 0.1,7,2) {}
 
 void Bicicleta::mover() {
 	if (x < 1 || x > 73) velocidad *= -1;
