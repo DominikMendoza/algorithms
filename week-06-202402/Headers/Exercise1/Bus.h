@@ -26,7 +26,7 @@ void Bus::Mover()
 {
 	if (x < 1) 
 	{
-		x = ANCHO_CONSOLA - ancho; //120
+		x = ANCHO_CONSOLA - ancho; 
 	}
 	x += dx * velocidad;
 	y += dy * velocidad;

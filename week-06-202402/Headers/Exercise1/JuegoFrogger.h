@@ -1,6 +1,5 @@
 #pragma once
 #include "Bicicleta.h"
-#include "Terrestre.h"
 #include "Bus.h"
 #include "Carro.h"
 #include "Persona.h"
