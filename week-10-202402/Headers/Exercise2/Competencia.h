@@ -95,11 +95,6 @@ void Competencia::MostrarRanking(Graphics^ g)
 			ganador = "LOS GANADORES SON EL CUADRADO Y EL CIRCULO!!";
 			g->DrawString(ganador, gcnew Font("Arial", 18, FontStyle::Bold), Brushes::Red, Point(centroX - 215, centroY + 170));
 		}
-		else if (victoriasCuadrado >= victoriasTriangulo && victoriasCuadrado > victoriasCirculo)
-		{
-			ganador = "LOS GANADORES SON EL CUADRADO Y EL TRIANGULO!!";
-			g->DrawString(ganador, gcnew Font("Arial", 18, FontStyle::Bold), Brushes::Red, Point(centroX - 215, centroY + 170));
-		}
 		else if (victoriasCirculo >= victoriasTriangulo && victoriasCirculo > victoriasCuadrado)
 		{
 			ganador = "LOS GANADORES SON EL CIRCULO Y EL TRIANGULO!!";
@@ -111,7 +106,6 @@ void Competencia::MostrarRanking(Graphics^ g)
 			g->DrawString(ganador, gcnew Font("Arial", 18, FontStyle::Bold), Brushes::Red, Point(centroX - 10, centroY + 170));
 		}
 	}
-
 }
 
 void Competencia::DibujarFiguras(Graphics^ g)
