@@ -19,15 +19,6 @@ namespace My01movimientofigura {
 
             graph = panelFiguras->CreateGraphics();
             sistema = new Controladora(graph);
-
-            //timer->Interval = 100; // Intervalo de 100 ms para la animación
-            //this->KeyPreview = true; // Permite que el formulario capture eventos de teclado
-
-            // Asigna el evento KeyDown
-            
-
-            // Habilita el doble buffer para evitar parpadeos
-            //this->DoubleBuffered = true;
         }
 
     protected:
@@ -83,7 +74,7 @@ namespace My01movimientofigura {
 
     private:
         System::Void panelFiguras_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-            // Lógica opcional de dibujo al repintar el panel.
+            
         }
 
         System::Void timer_Tick(System::Object^ sender, System::EventArgs^ e) {
@@ -93,26 +84,21 @@ namespace My01movimientofigura {
         }
 
         System::Void FrmFiguras_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-            // Detecta si se presiona una tecla
             switch (e->KeyCode)
             {
             case Keys::T:
                 sistema->agregarTriangulo();
                 break;
             case Keys::C:
-                // Acción para tecla C
                 sistema->agregarCirculo();
                 break;
             case Keys::E:
-                // Acción para tecla E
                 sistema->agregarElipse();
                 break;
             case Keys::D:
-                // Acción para tecla D
                 sistema->agregarCuadrado();
                 break;
             case Keys::R:
-                // Acción para tecla R
                 sistema->agregarRectangulo();
                 break;
             case Keys::Escape:
