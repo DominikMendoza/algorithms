@@ -1,0 +1,9 @@
+﻿  sukiWaterhouse.cpp
+C:\Users\marsr\source\repos\comprandoKFC\comprandoKFC\CFigure.hpp(14,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  (compiling source file 'sukiWaterhouse.cpp')
+  
+C:\Users\marsr\source\repos\comprandoKFC\comprandoKFC\CControl.hpp(11,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  (compiling source file 'sukiWaterhouse.cpp')
+  
+  sukiWaterhouse.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  comprandoKFC.vcxproj -> C:\Users\marsr\source\repos\comprandoKFC\x64\Debug\comprandoKFC.exe
