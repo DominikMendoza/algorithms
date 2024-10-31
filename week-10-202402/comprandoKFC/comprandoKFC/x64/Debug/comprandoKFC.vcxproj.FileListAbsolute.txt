@@ -1,3 +1,0 @@
-C:\Users\marsr\source\repos\comprandoKFC\comprandoKFC\x64\Debug\comprandoKFC.vcxproj.AssemblyReference.cache
-C:\Users\marsr\source\repos\comprandoKFC\comprandoKFC\x64\Debug\comprandoKFC.sukiWaterhouse.resources
-C:\Users\marsr\source\repos\comprandoKFC\comprandoKFC\x64\Debug\comprandoKFC.vcxproj.GenerateResource.cache
