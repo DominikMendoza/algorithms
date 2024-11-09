@@ -1,0 +1,2 @@
+Cantidad de arboles verdes: 1
+Cantidad de arboles rojos: 10
