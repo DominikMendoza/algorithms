@@ -63,7 +63,7 @@ void Hulk::mover(Graphics^ g, char tecla)
 			break;
 		}
 		case 'D': {
-			if (x + width * zoom + dx > g->VisibleClipBounds.Width) return;
+			if (x + width * zoom  + dx > g->VisibleClipBounds.Width) return;
 			idy = 2;
 			x += dx;
 			break;
