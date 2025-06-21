@@ -1,6 +1,7 @@
 #pragma once
 #include "Personaje.hpp"
 #include "Enemigo.hpp"
+#include "Ejemplo.h"
 namespace Project51 {
 
 	using namespace System;
@@ -26,6 +27,7 @@ namespace Project51 {
 		float segundos;
 	private: System::Windows::Forms::Timer^ timer5s;
 	private: System::Windows::Forms::Label^ lblTiempo;
+	private: System::Windows::Forms::Button^ btnFormEjemplo;
 		   Enemigo* ene;
 	public:
 		MyForm(void)
@@ -79,6 +81,7 @@ namespace Project51 {
 			this->lblResultado = (gcnew System::Windows::Forms::Label());
 			this->timer5s = (gcnew System::Windows::Forms::Timer(this->components));
 			this->lblTiempo = (gcnew System::Windows::Forms::Label());
+			this->btnFormEjemplo = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// timerMain
@@ -116,11 +119,22 @@ namespace Project51 {
 			this->lblTiempo->TabIndex = 1;
 			this->lblTiempo->Text = L"Tiempo: ";
 			// 
+			// btnFormEjemplo
+			// 
+			this->btnFormEjemplo->Location = System::Drawing::Point(572, 255);
+			this->btnFormEjemplo->Name = L"btnFormEjemplo";
+			this->btnFormEjemplo->Size = System::Drawing::Size(75, 23);
+			this->btnFormEjemplo->TabIndex = 2;
+			this->btnFormEjemplo->Text = L"Abrir otro form";
+			this->btnFormEjemplo->UseVisualStyleBackColor = true;
+			this->btnFormEjemplo->Click += gcnew System::EventHandler(this, &MyForm::btnFormEjemplo_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1099, 787);
+			this->Controls->Add(this->btnFormEjemplo);
 			this->Controls->Add(this->lblTiempo);
 			this->Controls->Add(this->lblResultado);
 			this->Name = L"MyForm";
@@ -193,5 +207,13 @@ namespace Project51 {
 		lblResultado->Visible = true;
 		buffer->Render(g);
 	}
+
+private: System::Void btnFormEjemplo_Click(System::Object^ sender, System::EventArgs^ e) {
+	Ejemplo^ formEjemplo = gcnew Ejemplo();
+	this->Hide();
+	formEjemplo->ShowDialog();
+	this->Show();
+	delete formEjemplo;
+}
 };
 }
