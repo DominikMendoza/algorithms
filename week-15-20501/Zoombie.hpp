@@ -1,5 +1,5 @@
 #pragma once
-#include "Movil.hpp"
+#include "Bloque.hpp"
 class Zoombie : public Movil
 {
 private:
@@ -8,7 +8,8 @@ public:
 	Zoombie(int x, int y, int width, int height, int vidas);
 	~Zoombie();
 	void mover(Graphics^ g, char tecla) override;
-	bool puedeMoverse(char tecla, Movil* ob);
+	bool puedeMoverse(Graphics^ g, char tecla, vector<Bloque*>& bloques);
+	Rectangle getRectangleAfterMove(char tecla);
 	void disminuirVidas();
 	int getVidas();
 };
@@ -61,41 +62,36 @@ void Zoombie::mover(Graphics^ g, char tecla)
 	}
 }
 
-bool Zoombie::puedeMoverse(char tecla, Movil* ob)
+bool Zoombie::puedeMoverse(Graphics^ g, char tecla, vector<Bloque*>& bloques)
 {
-	int posFutura;
-	switch (tecla)
-	{
-	case 'S': {
-		posFutura = y + dy + height * zoom;
-		if (posFutura > ob->getRectangle().Y) {
+	Rectangle nextPosition = getRectangleAfterMove(tecla);
+
+	if (nextPosition.X < 0 || nextPosition.Y < 0 ||
+		nextPosition.Right > g->VisibleClipBounds.Width || nextPosition.Bottom > g->VisibleClipBounds.Height) {
+		return false;
+	}
+
+	for (int i = 0; i < bloques.size(); i++) {
+		if (bloques[i]->getRectangle().IntersectsWith(nextPosition)) {
 			return false;
 		}
-		break;
 	}
-	case 'A': {
-		posFutura = x - dx;
-		if (posFutura < ob->getRectangle().Width) {
-			return false;
-		}
-		break;
-	}
-	case 'D': {
-		posFutura = x + dx + width * zoom;
-		if (posFutura > ob->getRectangle().X) {
-			return false;
-		}
-		break;
-	}
-	case 'W': {
-		posFutura = y - dy;
-		if (posFutura < ob->getRectangle().Height) {
-			return false;
-		}
-		break;
-	}
-	}
+
 	return true;
+}
+
+Rectangle Zoombie::getRectangleAfterMove(char tecla)
+{
+	int nextX = x, nextY = y;
+
+	switch (tecla) {
+	case 'W': nextY -= dy; break;
+	case 'S': nextY += dy; break;
+	case 'A': nextX -= dx; break;
+	case 'D': nextX += dx; break;
+	}
+
+	return Rectangle(nextX, nextY, width * zoom, height * zoom);
 }
 
 void Zoombie::disminuirVidas()

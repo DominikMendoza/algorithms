@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include "Zoombie.hpp"
-#include "Bloque.hpp"
 #include "Planta.hpp"
 
 class Controladora
@@ -70,13 +69,9 @@ void Controladora::moverObjetos(Graphics^ g)
 
 void Controladora::moverPersonaje(Graphics^ g, char tecla)
 {
-	for (int i = 0; i < bloques.size(); i++)
-	{
-		if (!zoo->puedeMoverse(tecla, bloques[i])) {
-			return;
-		}
+	if (zoo->puedeMoverse(g, tecla, bloques)) {
+		zoo->mover(g, tecla);
 	}
-	zoo->mover(g, tecla);
 }
 
 void Controladora::evaluarColisiones()

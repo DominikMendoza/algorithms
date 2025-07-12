@@ -42,7 +42,7 @@ namespace Project59 {
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estÃ©n usando.
 		/// </summary>
 		~MyForm()
 		{
@@ -61,14 +61,14 @@ namespace Project59 {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseÃ±ador necesaria.
 		/// </summary>
 
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
+		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -132,28 +132,28 @@ namespace Project59 {
 		case Keys::W:
 		case Keys::Up:
 		{
-			ctrl->getZoombie()->mover(bf->Graphics, 'W');
+			ctrl->moverPersonaje(bf->Graphics, 'W');
 			break;
 		}
 
 		case Keys::A:
 		case Keys::Left:
 		{
-			ctrl->getZoombie()->mover(bf->Graphics, 'A');
+			ctrl->moverPersonaje(bf->Graphics, 'A');
 			break;
 		}
 
 		case Keys::S:
 		case Keys::Down:
 		{
-			ctrl->getZoombie()->mover(bf->Graphics, 'S');
+			ctrl->moverPersonaje(bf->Graphics, 'S');
 			break;
 		}
 
 		case Keys::D:
 		case Keys::Right:
 		{
-			ctrl->getZoombie()->mover(bf->Graphics, 'D');
+			ctrl->moverPersonaje(bf->Graphics, 'D');
 			break;
 		}
 		}
